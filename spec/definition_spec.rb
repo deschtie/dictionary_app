@@ -9,39 +9,50 @@ describe('Definition') do
 
   describe('#part_of_speech') do
     it('returns the part of speech object called on the word') do
-      test_part_of_speech = Definition.new({:part_of_speech => "ajective" , :definition_1 => "characterized by assumption of dignity or importance, especially when exaggerated or undeserved" , :definition_2 => "making an exaggerated outward show; ostentatious"})
-      expect(test_part_of_speech.part_of_speech()).to(eq('ajective'))
+      test_definition = Definition.new({:part_of_speech => "ajective" , :definition_1 => "characterized by assumption of dignity or importance, especially when exaggerated or undeserved" , :definition_2 => "making an exaggerated outward show; ostentatious"})
+      expect(test_definition.part_of_speech()).to(eq('ajective'))
     end
   end
 
   describe('#definition_1') do
     it('it returns the first definition of the word') do
-      test_definition_1 = Definition.new({:part_of_speech => "ajective" , :definition_1 => "characterized by assumption of dignity or importance, especially when exaggerated or undeserved" , :definition_2 => "making an exaggerated outward show; ostentatious"})
-      expect(test_definition_1.definition_1()).to(eq( "characterized by assumption of dignity or importance, especially when exaggerated or undeserved"))
+      test_definition = Definition.new({:part_of_speech => "ajective" , :definition_1 => "characterized by assumption of dignity or importance, especially when exaggerated or undeserved" , :definition_2 => "making an exaggerated outward show; ostentatious"})
+      expect(test_definition.definition_1()).to(eq( "characterized by assumption of dignity or importance, especially when exaggerated or undeserved"))
     end
   end
 
     describe('#definition_2') do
       it('it returns the second definition of the word') do
-      test_definition_2 = Definition.new({:part_of_speech => "ajective" , :definition_1 => "characterized by assumption of dignity or importance, especially when exaggerated or undeserved" , :definition_2 => "making an exaggerated outward show; ostentatious"})
-      expect(test_definition_2.definition_2()).to(eq("making an exaggerated outward show; ostentatious"))
+      test_definition = Definition.new({:part_of_speech => "ajective" , :definition_1 => "characterized by assumption of dignity or importance, especially when exaggerated or undeserved" , :definition_2 => "making an exaggerated outward show; ostentatious"})
+      expect(test_definition.definition_2()).to(eq("making an exaggerated outward show; ostentatious"))
     end
   end
  
-#   describe('#save') do
-#     it('it adds a vehicle to the array of saved vehicles') do
-#       test_vehicle = Vehicle.new('Ford', 'Taurus', 2000)
-#       test_vehicle.save()
-#       expect(Vehicle.all()).to(eq([test_vehicle]))
+  describe('#save') do
+    it('it adds a definition info to the array of saved definition info for a specific word') do
+      test_definition = Definition.new({:part_of_speech => "ajective" , :definition_1 => "characterized by assumption of dignity or importance, especially when exaggerated or undeserved" , :definition_2 => "making an exaggerated outward show; ostentatious"})
+      test_definition.save()
+      expect(Definition.all()).to(eq([test_definition]))
+    end
+  end
+
+  describe('.all') do
+    it('it returns all the definition parts stored in the array of definition objects') do
+      test_definition = Definition.new({:part_of_speech => "ajective", :definition_1 => "characterized by assumption of dignity or importance, especially when exaggerated or undeserved", :definition_2 => "making an exaggerated outward show; ostentatious"})
+      expect(Definition.all(test_definition)).to(eq([test_part, test_definition_1, test_definition_2]))
+    end
+  end
+  
+  
+#     describe('.all') do
+#     it('it returns all the definition parts stored in the array of definition objects') do
+#       test_part = Definition.new({:part_of_speech => "ajective"})
+#       test_definition_1 = Definition.new({:definition_1 => "characterized by assumption of dignity or importance, especially when exaggerated or undeserved"})
+#         test_defintion_2 = Definition.new({ :definition_2 => "making an exaggerated outward show; ostentatious"})
+#       expect(Definition.all()).to(eq([test_part, test_definition_1, test_definition_2]))
 #     end
 #   end
-
-#   describe('.all') do
-#     it('is empty at first') do
-#       expect(Vehicle.all()).to(eq([]))
-#     end
-#   end
-
+  
 #   describe('.clear') do
 #     it('clears all the saved vehicles from the class array') do
 #       test_vehicle = Vehicle.new('Ford', 'Taurus', 2000)
