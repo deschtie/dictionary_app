@@ -4,13 +4,13 @@ require('word')
 
 
 describe('Word') do
-#   before() do
-#     Word.clear()
-#   end
+  before() do
+    Word.clear()
+  end
 
   describe('#callword') do
     it('returns the word object') do
-      test_word = Word.new({:callword => "pretentious"})
+    test_word = Word.new(:callword => "pretentious")
     expect(test_word.callword()).to(eq("pretentious"))
     end
  end
@@ -24,24 +24,23 @@ describe('Word') do
       expect(Word.all()).to(eq([test_word]))
     end
   end
-
-  describe('.all') do
-    it('it returns all the words stored in the array of words') do
-     test_word = Word.new({:callword => "pretentious"})
-      test_word_2 = Word.new([:callword => "arbitrary"])
-      expect(Word.all()).to(eq([test_word, test_word_2]))
+  
+   describe('.all') do
+    it('is empty at first') do
+      expect(Word.all()).to(eq([]))
     end
   end
-  
-     
-#   describe('.clear') do
-#     it('clears all the saved vehicles from the class array') do
-#       test_vehicle = Vehicle.new('Ford', 'Taurus', 2000)
-#       test_vehicle.save()
-#       Vehicle.clear()
-#       expect(Vehicle.all()).to(eq([]))
-#     end
-#   end
+
+
+  describe('.clear') do
+    it('clears all the saved definitions from the class array') do
+      test_word = Word.new({:callword =>"pretentious"})
+      test_word.save()
+      Word.clear()
+      expect(Word.all()).to(eq([]))
+    end
+  end
+
 
 #   describe('#age') do
 #     it('returns the vehicles age') do

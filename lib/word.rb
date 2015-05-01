@@ -7,7 +7,7 @@ class Word
       @callword = attributes.fetch(:callword)
     end
 
-    define_method(:save) do
+  define_method(:save) do
       @@words.push(self)
     end
   

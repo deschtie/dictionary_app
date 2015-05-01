@@ -17,6 +17,7 @@ class Definition
   define_singleton_method(:all) do
     @@stored_definition
   end
+  
     define_singleton_method(:clear) do
       @@stored_definition = []
     end

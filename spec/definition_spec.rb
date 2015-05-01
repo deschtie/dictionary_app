@@ -3,9 +3,9 @@ require('definition')
 require('word')
 
 describe('Definition') do
-#   before() do
-#     Definition.clear()
-#   end
+  before() do
+    Definition.clear()
+  end
 
   describe('#part_of_speech') do
     it('returns the part of speech object called on the word') do
@@ -35,13 +35,29 @@ describe('Definition') do
       expect(Definition.all()).to(eq([test_definition]))
     end
   end
-
-  describe('.all') do
-    it('it returns all the definition parts stored in the array of definition objects') do
-      test_definition = Definition.new({:part_of_speech => "ajective", :definition_1 => "characterized by assumption of dignity or importance, especially when exaggerated or undeserved", :definition_2 => "making an exaggerated outward show; ostentatious"})
-      expect(Definition.all(test_definition)).to(eq([test_part, test_definition_1, test_definition_2]))
+  
+    describe('.all') do
+    it('is empty at first') do
+      expect(Definition.all()).to(eq([]))
     end
   end
+
+
+  describe('.clear') do
+    it('clears all the saved definitions from the class array') do
+      test_definition = Definition.new({:part_of_speech => "ajective" , :definition_1 => "characterized by assumption of dignity or importance, especially when exaggerated or undeserved" , :definition_2 => "making an exaggerated outward show; ostentatious"})
+      test_definition.save()
+      Definition.clear()
+      expect(Definition.all()).to(eq([]))
+    end
+  end
+
+#   describe('.all') do
+#     it('it returns all the definition parts stored in the array of definition objects') do
+#       test_definition = Definition.new({:part_of_speech => "ajective", :definition_1 => "characterized by assumption of dignity or importance, especially when exaggerated or undeserved", :definition_2 => "making an exaggerated outward show; ostentatious"})
+#       expect(Definition.all()).to(eq([test_definition]))
+#     end
+#   end
   
   
 #     describe('.all') do
