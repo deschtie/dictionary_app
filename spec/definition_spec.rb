@@ -14,20 +14,20 @@ describe('Definition') do
     end
   end
 
-#   describe('#definition_1') do
-#     it('it returns the model of the car') do
-#       test_vehicle = Vehicle.new({:part_of_speech => , :definition_1 => , :definition_2 => })
-#       expect(test_vehicle.model()).to(eq('Taurus'))
-#     end
-#   end
+  describe('#definition_1') do
+    it('it returns the first definition of the word') do
+      test_definition_1 = Definition.new({:part_of_speech => "ajective" , :definition_1 => "characterized by assumption of dignity or importance, especially when exaggerated or undeserved" , :definition_2 => "making an exaggerated outward show; ostentatious"})
+      expect(test_definition_1.definition_1()).to(eq( "characterized by assumption of dignity or importance, especially when exaggerated or undeserved"))
+    end
+  end
 
-#   describe('#definition_2') do
-#     it('returns the year of the car') do
-#       test_vehicle = Vehicle.new{:part_of_speech => , :definition_1 => , :definition_2 => })
-#       expect(test_vehicle.year()).to(eq(2000))
-#     end
-#   end
-
+    describe('#definition_2') do
+      it('it returns the second definition of the word') do
+      test_definition_2 = Definition.new({:part_of_speech => "ajective" , :definition_1 => "characterized by assumption of dignity or importance, especially when exaggerated or undeserved" , :definition_2 => "making an exaggerated outward show; ostentatious"})
+      expect(test_definition_2.definition_2()).to(eq("making an exaggerated outward show; ostentatious"))
+    end
+  end
+ 
 #   describe('#save') do
 #     it('it adds a vehicle to the array of saved vehicles') do
 #       test_vehicle = Vehicle.new('Ford', 'Taurus', 2000)
