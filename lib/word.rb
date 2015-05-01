@@ -5,6 +5,7 @@ class Word
 
     define_method(:initialize) do |attributes|
       @callword = attributes.fetch(:callword)
+      @definitions = [] 
     end
 
   define_method(:save) do
@@ -19,11 +20,11 @@ class Word
       @@words = []
     end
   
-#   define_method(:add_word) do |definition|
-#     @definitions.push(definition)
-#   end
+  define_method(:add_definition) do |definition|
+    @definitions.push(definition)
+  end
 
-#   define_method(:definitions) do
-#     @definitions
-#   end
+  define_method(:definitions) do
+    @definitions
+  end
 end
