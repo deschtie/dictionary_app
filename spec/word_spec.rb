@@ -46,5 +46,15 @@ describe('Word') do
       expect(test_word.definitions()).to(eq([test_definition]))
     end
   end
+  
+  describe('#word_id') do
+     it('returns the id of each specific word') do
+       test_word = Word.new({:callword => "pretentious"})
+       test_word.save()
+       expect(test_word.word_id()).to(eq(1))
+    end
+  end
+  
+  
 end
   
