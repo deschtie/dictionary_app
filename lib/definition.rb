@@ -11,8 +11,7 @@ class Definition
       @part_of_speech = attributes.fetch(:part_of_speech)
       @definition_1 = attributes.fetch(:definition_1)
       @definition_2 = attributes.fetch(:definition_2)
-      @word_id = @@words.length().+(1)
-      @length = length
+     @id = @@words.length().+(1)
    end
 
     define_method(:save) do
@@ -27,8 +26,9 @@ class Definition
       @@stored_definition = []
     end
   
-  define_method(:word_id) do
-      @word_id = @@words.length().+(1)
+  
+  define_method(:id) do
+    @id
   end
   
   end

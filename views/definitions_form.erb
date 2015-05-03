@@ -1,7 +1,7 @@
 <h1>Add a definition to <%= @callword %> </h1>
 
 <form action="/definitions" method="post">
-<input id='word_id' name="word_id" type="hidden" value="<%= @callword.word_id() %>">
+<input id='word_id' name="word_id" type="hidden" value="<%= @callword.id() %>">
 
   <label for="part_of_speech">Part of Speech:</label>
   <input id="part_of_speech" name="part_of_speech" type="text">

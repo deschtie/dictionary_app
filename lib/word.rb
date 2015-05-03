@@ -7,8 +7,8 @@ class Word
 
     define_method(:initialize) do |attributes|
       @callword = attributes.fetch(:callword)
-      @definitions = [] 
-      @length = length
+      @definitions= [] 
+     @id = @@words.length().+(1)
     end
 
   define_method(:save) do
@@ -31,18 +31,19 @@ class Word
     @definitions
   end
 
-   define_singleton_method(:find) do |identification|
+  define_method(:id) do
+      @id
+  end
+  
+     define_singleton_method(:find) do |identification|
      found_word = nil
      @@words.each() do |word|
-       if word.word_id().eql?(identification.to_i())
+       if word.id().eql?(identification.to_i())
         found_word = word
       end
     end
      found_word
   end
     
-  define_singleton_method(:word_id) do
-    @@word_id = @@words.length().+(1)
-  end
   
 end
